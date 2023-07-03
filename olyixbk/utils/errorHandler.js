@@ -1,4 +1,8 @@
-module.exports = function(err, req, res, next) {
-    console.error(err.stack)
-    res.status(500).send('Something broke!')
-};
+class ErrorResponse extends Error {
+    constructor(message, statusCode) {
+        super(message);
+        this.statusCode = statusCode;
+    }
+}
+
+module.exports = ErrorResponse;
